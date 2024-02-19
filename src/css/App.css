@@ -22,8 +22,136 @@
   --fs-300: 0.875rem;
   --fs-400: 1rem;
   --fs-500: 1.5rem;
+  --fs-550: 1.75rem;
   --fs-600: 2rem;
   --fs-700: 2.5rem;
   --fs-800: 3rem;
   --fs-900: 3.5rem;
+}
+
+body {
+  margin: 1.25rem;
+  display: grid;
+  place-content: center;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+/* utilities */
+.flex-group {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* card styles */
+.card {
+  --content-padding: 1.5rem;
+  --content-spacing: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-700);
+  border-radius: 0.5rem;
+  font-family: var(--ff-base);
+  overflow: hidden;
+  max-width: 375px;
+}
+
+.card__img {
+  position: relative;
+}
+
+.card__img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+  opacity: 0.75;
+  background-color: var(--clr-primary-300);
+}
+
+.card__img img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-spacing);
+  padding: var(--content-padding);
+  text-align: center;
+}
+
+.card__title {
+  padding-top: 1rem;
+  font-size: var(--fs-550);
+}
+
+.card__title span {
+  color: var(--clr-primary-300);
+}
+
+.card__description {
+  color: var(--clr-neutral-75);
+}
+
+.card__stats-numbers {
+  font-family: var(--ff-accent);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-bold);
+}
+
+.card__stats-headings {
+  color: var(--clr-neutral-60);
+  text-transform: uppercase;
+  font-size: var(--fs-300);
+}
+
+/* media queries */
+@media (min-width: 1024px) {
+  .card {
+    --content-padding: 2rem;
+    flex-direction: row-reverse;
+    max-width: 1024px;
+  }
+
+  .card__content {
+    display: flex;
+    justify-content: center;
+    padding: 0 6rem 0 4rem;
+    width: 50%;
+    text-align: left;
+  }
+
+  .card__title {
+    font-size: var(--fs-600);
+  }
+
+  .card__img {
+    width: 50%;
+  }
+
+  .card__description {
+    font-size: var(--fs-300);
+  }
+
+  .card__stats {
+    text-align: left;
+  }
+
+  .flex-group {
+    padding-top: 3rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
