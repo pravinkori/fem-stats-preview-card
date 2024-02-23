@@ -51,7 +51,7 @@ function Card() {
         </p>
 
         {/* Statistics section */}
-        <div className="flex-group">
+        <div className={styles["flex-group"]}>
           {statsData.map((stat, index) => (
             <div className={styles.card__stats} key={index}>
               <p className={styles["card__stats-numbers"]}>{stat.number}</p>
