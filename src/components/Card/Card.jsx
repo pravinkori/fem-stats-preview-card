@@ -1,6 +1,7 @@
+import styles from "./Card.module.css";
 import { useState, useEffect } from "react";
-import desktopImg from "../assets/images/image-header-desktop.jpg";
-import mobileImg from "../assets/images/image-header-mobile.jpg";
+import desktopImg from "/src/assets/images/image-header-desktop.jpg";
+import mobileImg from "/src/assets/images/image-header-mobile.jpg";
 
 function Card() {
   // State to keep track of window width
@@ -31,20 +32,20 @@ function Card() {
   ];
 
   return (
-    <article className="card">
+    <article className={styles.card}>
       {/* Picture element for responsive images */}
-      <picture className="card__img">
+      <picture className={styles.card__img}>
         <source srcSet={desktopImg} media="(min-width: 1024px)" />
         <img src={imageSrc} alt="Employees working in office" />
       </picture>
-      <div className="card__content">
+      <div className={styles.card__content}>
         {/* Title */}
-        <h1 className="card__title">
+        <h1 className={styles.card__title}>
           Get <span>insights</span> that help your business grow.
         </h1>
 
         {/* Description */}
-        <p className="card__description">
+        <p className={styles.card__description}>
           Discover the benefits of data analytics and make better decisions
           regarding revenue, customer experience, and overall efficiency.
         </p>
@@ -52,9 +53,9 @@ function Card() {
         {/* Statistics section */}
         <div className="flex-group">
           {statsData.map((stat, index) => (
-            <div className="card__stats" key={index}>
-              <p className="card__stats-numbers">{stat.number}</p>
-              <p className="card__stats-headings">{stat.heading}</p>
+            <div className={styles.card__stats} key={index}>
+              <p className={styles["card__stats-numbers"]}>{stat.number}</p>
+              <p className={styles["card__stats-headings"]}>{stat.heading}</p>
             </div>
           ))}
         </div>
